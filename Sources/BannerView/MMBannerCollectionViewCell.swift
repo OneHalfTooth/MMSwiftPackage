@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 import SwiftyJSON
 
 class MMBannerCollectionViewCell: UICollectionViewCell {
