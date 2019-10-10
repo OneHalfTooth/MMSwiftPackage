@@ -1,3 +1,3 @@
 # MMSwiftPackage
 
-A description of this package.
+MMBannerView 轮播图组件

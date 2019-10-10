@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 import SwiftyJSON
 
-class MMBannerCollectionViewCell: UICollectionViewCell {
+public class MMBannerCollectionViewCell: UICollectionViewCell {
 
     open var imageView : UIImageView?
 
