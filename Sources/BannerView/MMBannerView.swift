@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 /// 轮播
-class MMBannerView: UIView {
+public class MMBannerView: UIView {
 
 
     /// collectionView
