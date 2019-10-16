@@ -18,7 +18,7 @@ public class MMBannerCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.purple
+        self.backgroundColor = UIColor.white
         self.createImageView()
     }
 

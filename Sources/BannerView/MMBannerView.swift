@@ -20,11 +20,11 @@ public class MMBannerView: UIView {
     /** 页码变化的回调 */
     fileprivate var pageCallBack : ((Int) -> Void)?
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
     }
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.createView()
     }
