@@ -53,6 +53,9 @@ class MMBannerCollectionView: UICollectionView {
         self.placeholder = placeholder
         self.key = key
         self.reloadData()
+        if self.datas?.count == 1{
+            return
+        }
         self.performBatchUpdates(nil) { (stop) in
             self.curIndex = 1
             self.scrollToItem(at: IndexPath.init(item: 1, section: 0), at: .centeredHorizontally, animated: false)
