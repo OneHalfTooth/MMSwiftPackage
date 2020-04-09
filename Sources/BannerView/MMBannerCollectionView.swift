@@ -53,7 +53,7 @@ class MMBannerCollectionView: UICollectionView {
         self.placeholder = placeholder
         self.key = key
         self.reloadData()
-        if self.datas?.count <= 1{
+        if (self.datas?.count ?? 0) <= 1{
             return
         }
         self.performBatchUpdates(nil) { (stop) in
