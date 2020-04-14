@@ -9,8 +9,6 @@
 import UIKit
 import SnapKit
 import SwiftyJSON
-import RxCocoa
-import RxSwift
 
 class MMTagView: UIView {
 
@@ -33,12 +31,9 @@ class MMTagView: UIView {
      */
     var cellClickCallBack : ((JSON,IndexPath) -> Void)?
 
-    /** 高度回调信号 */
-    var tagViewContentSize = BehaviorRelay.init(value: CGSize.zero)
     /** 高度回调 */
     var tagViewContentSizeCallBack :((CGSize) -> Void)?
 
-    fileprivate var dis : DisposeBag? = DisposeBag()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -101,15 +96,15 @@ class MMTagView: UIView {
             make.top.bottom.left.right.equalToSuperview()
         }
         self.collectionView.register(UINib.init(nibName: "MMTagViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MMTagViewCollectionViewCell")
-        self.collectionView.rx.observe(CGSize.self, "contentSize").distinctUntilChanged().subscribe(onNext: { (size) in
-            if size != nil{
-                self.tagViewContentSize.accept(size!)
-                self.tagViewContentSizeCallBack?(size!)
-            }
-        }).disposed(by: self.dis!)
+        self.collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+    }
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let size = change?[NSKeyValueChangeKey.newKey] as? CGSize{
+            self.tagViewContentSizeCallBack?(size)
+        }
     }
     deinit {
-        self.dis = nil
+        self.collectionView.removeObserver(self, forKeyPath: "contentSize")
     }
 }
 
