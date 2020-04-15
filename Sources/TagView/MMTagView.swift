@@ -70,10 +70,10 @@ public class MMTagView: UIView {
     /// - Parameters:
     ///   - className: cell 名称
     ///   - isNib: 是否nib
-    open func registCell(className:String,isNib:Bool = true){
+    open func registCell(className:String,isNib:Bool = true,bundle:Bundle? = nil){
         self.className = className
         if isNib{
-            self.collectionView.register(UINib.init(nibName: className, bundle: nil), forCellWithReuseIdentifier: className)
+            self.collectionView.register(UINib.init(nibName: className, bundle: bundle), forCellWithReuseIdentifier: className)
             return
         }
         self.collectionView.register(NSClassFromString(className), forCellWithReuseIdentifier: className)
@@ -95,7 +95,7 @@ public class MMTagView: UIView {
         self.collectionView.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalToSuperview()
         }
-        self.collectionView.register(UINib.init(nibName: "MMTagViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MMTagViewCollectionViewCell")
+        self.collectionView.register(MMTagViewCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "MMTagViewCollectionViewCell")
         self.collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

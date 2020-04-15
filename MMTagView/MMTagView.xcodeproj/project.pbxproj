@@ -16,7 +16,6 @@
 		62E989B524454DB4001C5950 /* MMTagCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E989B424454DB3001C5950 /* MMTagCollectionViewLayout.swift */; };
 		62E989B8244550AE001C5950 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 62E989B7244550AE001C5950 /* SnapKit */; };
 		62E989BB24456029001C5950 /* MMTagViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E989B924456029001C5950 /* MMTagViewCollectionViewCell.swift */; };
-		62E989BC24456029001C5950 /* MMTagViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62E989BA24456029001C5950 /* MMTagViewCollectionViewCell.xib */; };
 		62E989BF244597A6001C5950 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 62E989BE244597A6001C5950 /* SwiftyJSON */; };
 		62E989C22445ADD7001C5950 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 62E989C12445ADD7001C5950 /* RxSwift */; };
 		62E989C42445ADD7001C5950 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 62E989C32445ADD7001C5950 /* RxCocoa */; };
@@ -33,7 +32,6 @@
 		62E989B224454C31001C5950 /* MMTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTagView.swift; sourceTree = "<group>"; };
 		62E989B424454DB3001C5950 /* MMTagCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTagCollectionViewLayout.swift; sourceTree = "<group>"; };
 		62E989B924456029001C5950 /* MMTagViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTagViewCollectionViewCell.swift; sourceTree = "<group>"; };
-		62E989BA24456029001C5950 /* MMTagViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMTagViewCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +85,6 @@
 				62E989B224454C31001C5950 /* MMTagView.swift */,
 				62E989B424454DB3001C5950 /* MMTagCollectionViewLayout.swift */,
 				62E989B924456029001C5950 /* MMTagViewCollectionViewCell.swift */,
-				62E989BA24456029001C5950 /* MMTagViewCollectionViewCell.xib */,
 			);
 			name = TagView;
 			path = ../../Sources/TagView;
@@ -162,7 +159,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62E989BC24456029001C5950 /* MMTagViewCollectionViewCell.xib in Resources */,
 				62E989AA24454A3B001C5950 /* LaunchScreen.storyboard in Resources */,
 				62E989A724454A3B001C5950 /* Assets.xcassets in Resources */,
 				62E989A524454A38001C5950 /* Main.storyboard in Resources */,
