@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MMTagCollectionViewLayout: UICollectionViewFlowLayout {
+public class MMTagCollectionViewLayout: UICollectionViewFlowLayout {
 
     fileprivate var lastAttr : UICollectionViewLayoutAttributes?
     override init() {
@@ -18,9 +18,9 @@ class MMTagCollectionViewLayout: UICollectionViewFlowLayout {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.scrollDirection = .horizontal
+        self.scrollDirection = .vertical
     }
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         let attrs = super.layoutAttributesForElements(in: rect)
         for x in attrs ?? [] {
             if x.representedElementKind == nil {
@@ -30,7 +30,7 @@ class MMTagCollectionViewLayout: UICollectionViewFlowLayout {
         return attrs
     }
 
-    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    public override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let att = super.layoutAttributesForItem(at: indexPath)
         if att?.indexPath.item == 0{ /** 如果是0直接返回 */
             var frame = att?.frame

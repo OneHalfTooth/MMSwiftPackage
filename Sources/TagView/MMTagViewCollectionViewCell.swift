@@ -8,12 +8,12 @@
 
 import UIKit
 
-class MMTagViewCollectionViewCell: UICollectionViewCell {
+public class MMTagViewCollectionViewCell: UICollectionViewCell {
 
     
     var cellAwakeCallBack : ((UICollectionViewCell) -> Void)?
     @IBOutlet weak var titleLabel: UILabel!
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         self.cellAwakeCallBack?(self)
     }

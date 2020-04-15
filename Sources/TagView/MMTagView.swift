@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import SwiftyJSON
 
-class MMTagView: UIView {
+public class MMTagView: UIView {
 
     fileprivate var collectionView : UICollectionView!
     fileprivate var layout : MMTagCollectionViewLayout!
@@ -98,7 +98,7 @@ class MMTagView: UIView {
         self.collectionView.register(UINib.init(nibName: "MMTagViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MMTagViewCollectionViewCell")
         self.collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let size = change?[NSKeyValueChangeKey.newKey] as? CGSize{
             self.tagViewContentSizeCallBack?(size)
         }
@@ -111,18 +111,18 @@ class MMTagView: UIView {
 //MARK:delegate
 extension MMTagView:UICollectionViewDelegate,UICollectionViewDataSource{
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.cellClickCallBack?(self.datas[indexPath.item],indexPath)
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.datas == JSON.null{
             return self.cellNumber
         }
         return self.datas.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if self.className.count > 0{
             let tcell = collectionView.dequeueReusableCell(withReuseIdentifier: self.className, for: indexPath)
             /** cell 布局 */
