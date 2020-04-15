@@ -21,27 +21,27 @@ public class MMTagView: UIView {
     fileprivate var key : String? = nil
 
     /** cell 布局调用 每次刷新时调用 */
-    var cellLayerCallBack : ((UICollectionViewCell,IndexPath) -> Void)?
+    open var cellLayerCallBack : ((UICollectionViewCell,IndexPath) -> Void)?
 
     /** MMTagViewCollectionViewCell 加载时调用，非MMTagViewCollectionViewCell 不调用 */
-    var cellAwakeCallBack : ((UICollectionViewCell) -> Void)?
+    open var cellAwakeCallBack : ((UICollectionViewCell) -> Void)?
 
     /** cell 被点击的回调
      * 若使用自定义的cell 那么 json 返回为JSON.null
      */
-    var cellClickCallBack : ((JSON,IndexPath) -> Void)?
+    open var cellClickCallBack : ((JSON,IndexPath) -> Void)?
 
     /** 高度回调 */
-    var tagViewContentSizeCallBack :((CGSize) -> Void)?
+    open var tagViewContentSizeCallBack :((CGSize) -> Void)?
 
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
         self.backgroundColor = UIColor.white
     }
 
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.createView()
     }
@@ -51,7 +51,7 @@ public class MMTagView: UIView {
     /// - Parameters:
     ///   - datas: 数据源 JSON类型
     ///   - key: 若key为空则表示是[string]类型
-    func setDatas(datas:JSON,key:String? = nil){
+    open func setDatas(datas:JSON,key:String? = nil){
         self.datas = datas
         self.key = key
         self.collectionView.reloadData()
@@ -60,7 +60,7 @@ public class MMTagView: UIView {
 
     /// 刷新标签
     /// - Parameter CellNumber: cell 数量
-    func reloadData(by CellNumber:Int){
+    open func reloadData(by CellNumber:Int){
         assert(self.className.count != 0,"请先调用registCell 进行自定义注册，否则请使用setDatas方法直接设置数据")
         self.cellNumber = CellNumber
         self.collectionView.reloadData()
@@ -70,7 +70,7 @@ public class MMTagView: UIView {
     /// - Parameters:
     ///   - className: cell 名称
     ///   - isNib: 是否nib
-    func registCell(className:String,isNib:Bool = true){
+    open func registCell(className:String,isNib:Bool = true){
         self.className = className
         if isNib{
             self.collectionView.register(UINib.init(nibName: className, bundle: nil), forCellWithReuseIdentifier: className)
@@ -80,7 +80,7 @@ public class MMTagView: UIView {
     }
 
     /** 设置 Layout*/
-    func setLayout(callBack:((MMTagCollectionViewLayout) -> Void)){
+    open func setLayout(callBack:((MMTagCollectionViewLayout) -> Void)){
         callBack(self.layout)
     }
 
