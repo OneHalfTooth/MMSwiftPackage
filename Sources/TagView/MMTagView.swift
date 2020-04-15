@@ -23,8 +23,6 @@ public class MMTagView: UIView {
     /** cell 布局调用 每次刷新时调用 */
     open var cellLayerCallBack : ((UICollectionViewCell,IndexPath) -> Void)?
 
-    /** MMTagViewCollectionViewCell 加载时调用，非MMTagViewCollectionViewCell 不调用 */
-    open var cellAwakeCallBack : ((UICollectionViewCell) -> Void)?
 
     /** cell 被点击的回调
      * 若使用自定义的cell 那么 json 返回为JSON.null
@@ -131,14 +129,12 @@ extension MMTagView:UICollectionViewDelegate,UICollectionViewDataSource{
         }
         let tcell = collectionView.dequeueReusableCell(withReuseIdentifier: "MMTagViewCollectionViewCell", for: indexPath)
         guard let cell = tcell as? MMTagViewCollectionViewCell else { return tcell }
-        cell.cellAwakeCallBack = {[weak self] (cell) in
-            self?.cellAwakeCallBack?(cell)
-        }
         if self.datas == JSON.null {
-            /** cell 布局 */
             self.cellLayerCallBack?(cell,indexPath)
             return cell
         }
+        /** cell 布局 */
+        self.cellLayerCallBack?(cell,indexPath)
         if self.key == nil {
             cell.titleLabel.text = self.datas[indexPath.item].stringValue
         }else{

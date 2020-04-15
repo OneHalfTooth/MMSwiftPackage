@@ -11,12 +11,10 @@ import UIKit
 public class MMTagViewCollectionViewCell: UICollectionViewCell {
 
     
-    var cellAwakeCallBack : ((UICollectionViewCell) -> Void)?
     var titleLabel: UILabel!
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
-        self.cellAwakeCallBack?(self)
     }
 
     required init?(coder: NSCoder) {
