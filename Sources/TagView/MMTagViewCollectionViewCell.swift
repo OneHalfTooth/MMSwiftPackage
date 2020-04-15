@@ -26,7 +26,8 @@ public class MMTagViewCollectionViewCell: UICollectionViewCell {
         self.titleLabel.font = UIFont.systemFont(ofSize: 12)
         self.contentView.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { (make) in
-            make.top.bottom.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview().priority(.high)
             make.left.equalToSuperview().offset(5)
             make.right.equalToSuperview().offset(-5)
             make.height.equalTo(25)
